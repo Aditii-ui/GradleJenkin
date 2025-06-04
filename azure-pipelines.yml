@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - master
 
@@ -5,11 +10,9 @@ pool:
   name: Default
 
 steps:
-- script: echo "My first Azure pipeline for Gradle project"
+- script: echo My Gradle Application
   displayName: 'Run a one-line script'
-
-- script: ./gradlew build
-  displayName: 'Build with Gradle'
-
-- script: java -jar target/GradleJenkin-1.0-jar
-  displayName: 'Run the built JAR file'
+- script: gradle build
+  displayName: 'Building the gradle application'
+- script: gradle run
+  displayName: 'Running gradle application'
