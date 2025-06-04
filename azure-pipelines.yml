@@ -1,20 +1,15 @@
-# Gradle
-# Build your Java project and run tests with Gradle using a Gradle wrapper script.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
 - master
 
 pool:
-  name:Default
+  name: Default
 
 steps:
-- script: echo Myfirst Azure pipeline for gradle project
-displayName:'Run a one-line script'
+- script: echo "My first Azure pipeline for Gradle project"
+  displayName: 'Run a one-line script'
 
--script:gradle clean install
-displayName:'Build a Gradle'
+- script: ./gradlew build
+  displayName: 'Build with Gradle'
 
--scrit:java -jar target/GradleJenkin-1.0-SNAPSHOT.jar
-displayName:'Running jar'
+- script: java -jar target/GradleJenkin-1.0-jar
+  displayName: 'Run the built JAR file'
